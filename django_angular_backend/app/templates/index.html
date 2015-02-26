@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en">
+<html lang="en" ng-app="test">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,10 +8,13 @@
 
     <title>Angular app</title>
 
-    <script type="text/javascript" src="{% static "test.js" %}"></script>
+    <script type="text/javascript" src="{% static "bower_components/angular/angular.js" %}"></script>
+    <script type="text/javascript" src="{% static "bower_components/angular-route/angular-route.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/app.js" %}"></script>
 
   </head>
   <body>
     <h1>Hello world!</h1>
+    <div ng-view></div>
   </body>
 </html>
