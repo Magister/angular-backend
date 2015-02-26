@@ -1,0 +1,27 @@
+.panel {
+    display: block;
+}
+
+.panel > h2 {
+    display: inline-block;
+}
+
+.panel * {
+    padding-right: 20px;
+}
+
+.container {
+    width: 650px;
+    column-count: 2;
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-width: 300px;
+    -webkit-column-width: 300px;
+    -moz-column-width: 300px;
+}
+
+.element > label {
+    padding-bottom: 10px;
+    width: 100px;
+    display: table-cell;
+}

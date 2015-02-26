@@ -2,7 +2,8 @@
 
 // Declare app level module which depends on views, and components
 angular.module('test', [
-    'ngRoute'
+    'ngRoute',
+    'test.userData'
 ])
 
 .config(['$routeProvider', function($routeProvider) {
