@@ -16,10 +16,12 @@ angular.module('test.userData', ['ngRoute'])
         "lastname": "Padalka",
         "bio": "Male",
         "dateofbirth": new Date("1985-05-08"),
-        "email": "misha.cn.ua@gmail.com",
-        "jabber": "magister@jabber.ua",
-        "skype": "magister.7",
-        "other": "empty"
+        contacts: [
+            { type: "email", caption: "Email", value: "misha.cn.ua@gmail.com"},
+            { type: "jabber", caption: "Jabber", value: "magister@jabber.ua"},
+            { type: "skype", caption: "Skype", value: "magister.7"},
+            { type: "other", caption: "Other", value: "some other contact data"},
+        ]
     };
 
 }]);

@@ -15,20 +15,10 @@
         <label>Bio:</label>
         <label>{{ userdata.bio }}</label>
     </div>
-    <div class="element">
-        <label>Email:</label>
-        <label>{{ userdata.email }}</label>
-    </div>
-    <div class="element">
-        <label>Jabber:</label>
-        <label>{{ userdata.jabber }}</label>
-    </div>
-    <div class="element">
-        <label>Skype:</label>
-        <label>{{ userdata.skype }}</label>
-    </div>
-    <div class="element">
-        <label>Other:</label>
-        <label>{{ userdata.other }}</label>
+</div>
+<div class="container">
+    <div class="element" ng-repeat="contact in userdata.contacts">
+        <label>{{ contact.caption }}:</label>
+        <label>{{ contact.value }}</label>
     </div>
 </div>
