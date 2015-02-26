@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="element">
+        <label>First name:</label>
+        <label>{{ userdata.firstname }}</label>
+    </div>
+    <div class="element">
+        <label>Last name:</label>
+        <label>{{ userdata.lastname }}</label>
+    </div>
+    <div class="element">
+        <label>Date of birth:</label>
+        <label>{{ userdata.dateofbirth | date }}</label>
+    </div>
+    <div class="element">
+        <label>Bio:</label>
+        <label>{{ userdata.bio }}</label>
+    </div>
+</div>
+<div class="container">
+    <div class="element" ng-repeat="contact in userdata.contacts">
+        <label>{{ contact.caption }}:</label>
+        <label>{{ contact.value }}</label>
+    </div>
+</div>
