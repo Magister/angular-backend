@@ -1,18 +1,21 @@
 {
-    "name": "angular-backend",
-    "description": "Test project",
-    "version": "0.0.1",
-    "homepage": "https://github.com/Magister/angular-backend",
-    "private": "true",
-    "dependencies": {},
-    "devDependencies": {
-        "karma": "latest",
-        "karma-cli": "latest",
-        "karma-firefox-launcher": "latest",
-        "karma-chrome-launcher": "latest",
-        "karma-jasmine": "latest"
-    },
-    "scripts": {
-        "test": "karma start"
-    }
+  "name": "angular-backend",
+  "description": "Test project",
+  "version": "0.0.1",
+  "homepage": "https://github.com/Magister/angular-backend",
+  "private": "true",
+  "dependencies": {},
+  "devDependencies": {
+    "karma": "latest",
+    "karma-cli": "latest",
+    "karma-firefox-launcher": "latest",
+    "karma-chrome-launcher": "latest",
+    "karma-jasmine": "latest",
+    "bower": "latest",
+    "karma-phantomjs-launcher": "~0.1.4"
+  },
+  "scripts": {
+    "postinstall": "node node_modules/.bin/bower install",
+    "test": "node node_modules/.bin/karma start --single-run --browsers PhantomJS"
+  }
 }
