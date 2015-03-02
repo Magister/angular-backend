@@ -1,24 +1,24 @@
-<div class="container">
+<div class="col-sm-6">
     <div class="element">
         <label>First name:</label>
-        <label>{{ userdata.firstname }}</label>
+        <span>{{ userdata.firstname }}</span>
     </div>
     <div class="element">
         <label>Last name:</label>
-        <label>{{ userdata.lastname }}</label>
+        <span>{{ userdata.lastname }}</span>
     </div>
     <div class="element">
         <label>Date of birth:</label>
-        <label>{{ userdata.dateofbirth | date }}</label>
+        <span>{{ userdata.dateofbirth | date }}</span>
     </div>
     <div class="element">
         <label>Bio:</label>
-        <label>{{ userdata.bio }}</label>
+        <span>{{ userdata.bio }}</span>
     </div>
 </div>
-<div class="container">
+<div class="col-sm-6">
     <div class="element" ng-repeat="contact in userdata.contacts">
         <label>{{ contact.caption }}:</label>
-        <label>{{ contact.value }}</label>
+        <span>{{ contact.value }}</span>
     </div>
 </div>

@@ -1,21 +1,12 @@
-.panel {
-    display: block;
-}
-
-.panel > h2 {
+.page-header > h2 {
     display: inline-block;
 }
 
-.panel * {
+.page-header * {
     padding-right: 20px;
 }
 
-.container {
-    width: 300px;
-    float: left;
-}
-
-.element > label {
+.element > * {
     padding-bottom: 10px;
     width: 100px;
     display: table-cell;
