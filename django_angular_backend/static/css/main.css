@@ -11,3 +11,7 @@
     width: 100px;
     display: table-cell;
 }
+
+h3 {
+    font-style: italic;
+}

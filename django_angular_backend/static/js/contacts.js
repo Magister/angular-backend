@@ -3,7 +3,7 @@
 angular.module('test.contacts', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/contacts/', {
+  $routeProvider.when('/contacts', {
     templateUrl: 'static/partials/contacts.html',
     controller: 'Contacts'
   });

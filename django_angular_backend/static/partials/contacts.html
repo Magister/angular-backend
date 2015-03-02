@@ -1,0 +1,17 @@
+<h3 class="text-center">Contacts</h3>
+<table class="table table-responsive table-hover">
+    <thead>
+        <th>Name:</th>
+        <th>Email:</th>
+        <th>Cell phone:</th>
+        <th>Landline:</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="contact in contacts.objects">
+            <td><a href="{{ contact.resource_uri }}">{{ contact.first_name }} {{ contact.last_name }}</a></td>
+            <td>{{ contact.email }}</td>
+            <td>{{ contact.cellphone_number }}</td>
+            <td>{{ contact.phone_number }}</td>
+        </tr>
+    </tbody>
+</table>
