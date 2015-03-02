@@ -11,6 +11,6 @@ angular.module('test.contacts', ['ngRoute'])
 
 .controller('Contacts', ['$scope', 'ContactsService', function($scope, ContactsService) {
     
-    
+    $scope.contacts = ContactsService.query();
 
 }]);
