@@ -25,8 +25,15 @@ describe('test.contacts module', function() {
 
         beforeEach(inject(function(_$httpBackend_, $controller, $rootScope) {
             $httpBackend = _$httpBackend_;
-            $httpBackend.expectGET('api/v1/contact').respond(
-                [
+            $httpBackend.expectGET('api/v1/contact').respond({
+                "meta": {
+                    "limit": 1000,
+                    "next": null,
+                    "offset": 0,
+                    "previous": null,
+                    "total_count": 1
+                },
+                "objects": [
                     {"birth_date": "1933-03-02",
                      "cellphone_number": "",
                      "date_created": "2014-05-24T09:27:44.306000",
@@ -38,7 +45,7 @@ describe('test.contacts module', function() {
                      "phone_number": "",
                      "resource_uri": "/api/v1/contact/1"}
                 ]
-            );
+            });
             scope = $rootScope.$new();
             Contacts = $controller('Contacts', {
                 $scope: scope
@@ -46,9 +53,9 @@ describe('test.contacts module', function() {
         }));
 
         it('should create "contacts" model with one contact fetched from API', function() {
-            expect(scope.contacts).toEqualData([]);
+            expect(scope.contacts.objects).toBeUndefined();
             $httpBackend.flush();
-            expect(scope.contacts).toEqualData(
+            expect(scope.contacts.objects).toEqualData(
                 [
                     {"birth_date": "1933-03-02",
                      "cellphone_number": "",
