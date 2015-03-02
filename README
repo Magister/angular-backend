@@ -1,1 +1,9 @@
 Django Hello World Project
+
+Steps to run:
+ 1. Make sure you have installed:
+    - node.js 0.10.x
+    - npm >=2.6
+    - python 2 with virtualenv
+ 2. Run make install in project directory, it will download all needed things itself
+ 3. make run runs local webserver, so you can connect to http://127.0.0.1:8000 with your favorite web browser.
