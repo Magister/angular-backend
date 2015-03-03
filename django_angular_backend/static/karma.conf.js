@@ -6,7 +6,7 @@ module.exports = function(config) {
     var fs = require('fs'),
         path = require('path');
     var files = [];
-    var bower_dir = './django_angular_backend/static/bower_components';
+    var bower_dir = './bower_components';
     var bowerComponents = fs.readdirSync(bower_dir);
     for (var i = 0; i < bowerComponents.length; i++) {
         var prefix = path.join(bower_dir, bowerComponents[i]);
@@ -17,8 +17,8 @@ module.exports = function(config) {
         }
     }
     files = files.concat([
-      'django_angular_backend/static/js/*.js',
-      'django_angular_backend/static/js/**/*.js'
+      'js/*.js',
+      'js/**/*.js'
     ]);
     console.log(files);
     return files;
