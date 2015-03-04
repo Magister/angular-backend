@@ -89,7 +89,7 @@ describe('test.contactDetails module', function() {
             expect(scope.schema.fields.cellphone_number.blank).toBe(true);
             expect(scope.schema.fields.first_name.blank).toBe(false);
             expect(scope.contact).toEqualData({
-                "birth_date": "1933-03-02",
+                "birth_date": new Date("1933-03-02"),
                 "cellphone_number": "",
                 "date_created": "2014-05-24T09:27:44.306000",
                 "email": "robertabbot@gmail.com",
