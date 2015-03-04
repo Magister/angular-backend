@@ -1,0 +1,61 @@
+<h3 class="text-center">{{ contact.first_name}} {{ contact.last_name}} </h3>
+<div class="container">
+    <div class="container">
+        <form class="form-horizontal" ng-submit="update()">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Name:</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" ng-model="contact.first_name" ng-required="!schema.fields.first_name.blank"/>
+                </div>
+                <label class="col-sm-2 control-label">Last name:</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" ng-model="contact.last_name" ng-required="!schema.fields.last_name.blank"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Email:</label>
+                <div class="col-sm-2">
+                    <input type="email" class="form-control" ng-model="contact.email" placeholder="user@server" ng-required="!schema.fields.email.blank"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Cell phone:</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" ng-model="contact.cellphone_number" ng-required="!schema.fields.cellphone_number.blank"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Landline:</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" ng-model="contact.phone_number" ng-required="!schema.fields.phone_number.blank"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Birth date:</label>
+                <div class="col-sm-2">
+                    <input type="date" class="form-control" ng-model="contact.birth_date" placeholder="yyyy-DD-MM" ng-required="!schema.fields.birth_date.blank"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">JID:</label>
+                <div class="col-sm-2">
+                    <input type="email" class="form-control" ng-model="contact.jabber_id" placeholder="jid@server" ng-required="!schema.fields.jabber_id.blank"/>
+                </div>
+            </div>
+            <div class="col-sm-offset-2 col-sm-4">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </div>
+    <div class="container info">
+        <div class="alert alert-success col-sm-offset-2 col-sm-4" ng-show="showSuccess" role="alert">
+            <span>Saved successfully.</span>
+            <button type="button" class="close" aria-label="Close" ng-click="showSuccess = undefined"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="alert alert-danger col-sm-offset-2 col-sm-4" ng-show="showError" role="alert">
+            <span>Error saving contact...</span>
+            <button type="button" class="close" aria-label="Close" ng-click="showError = undefined"><span aria-hidden="true">&times;</span></button>
+        </div>
+    </div>
+    <a href="#/contacts">&lt; Back to all contacts</a>
+</div>

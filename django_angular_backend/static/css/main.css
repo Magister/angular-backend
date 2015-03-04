@@ -15,3 +15,11 @@
 h3 {
     font-style: italic;
 }
+
+.form-inline .form-group {
+    display: block;
+}
+
+div.info {
+    padding-top: 10px;
+}
