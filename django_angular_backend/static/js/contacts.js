@@ -16,7 +16,7 @@ angular.module('test.contacts', ['ngRoute'])
 
     $scope.contacts = ContactsService.query();
     $scope.contacts.$promise.then(function(result) {
-        $scope.contacts = result.objects;
+        $scope.contacts = result;
         $scope.updateFilter();
     });
 
@@ -30,10 +30,14 @@ angular.module('test.contacts', ['ngRoute'])
     $scope.sort_by = $scope.sort_fields[0];
 
     $scope.updateFilter = function(term) {
+        if ($scope.contacts.objects === undefined) {
+            // data are not ready, nothing to filter
+            return;
+        }
         if (term === undefined) {
             term = $scope.filter_by;
         }
-        $scope.filtered_contacts = filterFilter($scope.contacts, function(value, index) {
+        $scope.filtered_contacts = filterFilter($scope.contacts.objects, function(value, index) {
             var pattern = new RegExp(term, 'i');
             return (value.first_name + value.last_name).match(pattern)
                 || value.email.match(pattern)
