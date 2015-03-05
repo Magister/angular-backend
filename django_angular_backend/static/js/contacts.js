@@ -12,5 +12,12 @@ angular.module('test.contacts', ['ngRoute'])
 .controller('Contacts', ['$scope', 'ContactsService', function($scope, ContactsService) {
     
     $scope.contacts = ContactsService.query();
+    $scope.sort_fields = [
+               {id: "first_name+last_name", value: "Name"},
+               {id: "email", value: "Email"},
+               {id: "cellphone_number", value: "Cell phone"},
+               {id: "phone_number", value: "Landline"}
+           ];
+    $scope.sort_by = $scope.sort_fields[0];
 
 }]);
