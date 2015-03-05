@@ -13,7 +13,7 @@
         <th>Landline:</th>
     </thead>
     <tbody>
-        <tr ng-repeat="contact in contacts.objects | orderBy:sort_by.id | filter:filter_by">
+        <tr ng-repeat="contact in filtered_contacts | orderBy:sort_by.id" ng-if="$index >= current_page * page_size && $index < (current_page + 1) * page_size">
             <td><a href="#/contacts/{{ contact.id }}">{{ contact.first_name }} {{ contact.last_name }}</a></td>
             <td>{{ contact.email }}</td>
             <td>{{ contact.cellphone_number }}</td>
@@ -21,3 +21,10 @@
         </tr>
     </tbody>
 </table>
+<nav class="col-sm-offset-8">
+    <ul class="pager">
+        <li class="previous"><a href="" ng-click="prevPage()"><span aria-hidden="true">&larr;</span> Go back</a></li>
+        <li>Page {{current_page+1}} of {{total_pages}}</li>
+        <li class="next"><a href="" ng-click="nextPage()">Next page <span aria-hidden="true">&rarr;</span></a></li>
+    </ul>
+</nav>
