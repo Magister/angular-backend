@@ -1,7 +1,7 @@
 MANAGE=django-admin.py
 ROOT_DIR=`pwd`
 
-test:
+test: karma-test
 	PYTHONPATH=`pwd` DJANGO_SETTINGS_MODULE=django_angular_backend.settings $(MANAGE) test app
 
 run:
@@ -11,7 +11,7 @@ syncdb:
 	PYTHONPATH=`pwd` DJANGO_SETTINGS_MODULE=django_angular_backend.settings $(MANAGE) syncdb --noinput
 
 
-install:
+install: bower-install
 	virtualenv --no-site-packages .env
 	. $(ROOT_DIR)/.env/bin/activate; pip install -r $(ROOT_DIR)/requirements.txt
 	. $(ROOT_DIR)/.env/bin/activate; make syncdb
