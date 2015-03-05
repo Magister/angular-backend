@@ -1,6 +1,6 @@
 'use strict';
 
-describe('test.contacts module', function() {
+describe('test.contacts module:', function() {
 
     beforeEach(function(){
         jasmine.addMatchers({
@@ -70,6 +70,14 @@ describe('test.contacts module', function() {
                 ]
             );
         });
+
+        it('should create an array with sort options', function() {
+           expect(scope.sort_fields.length).toBeGreaterThan(1);
+        });
+
+        it('should set initial sort order', function() {
+            expect(scope.sort_by).toBeDefined();
+        })
 
     });
 });
