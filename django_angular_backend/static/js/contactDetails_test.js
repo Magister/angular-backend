@@ -80,6 +80,7 @@ describe('test.contactDetails module', function() {
                 $scope: scope,
                 $routeParams: {contactId: 1}
             });
+            scope.frm_contact_details = {};
         }));
 
         it('should create a "schema" model and a "contact" model with a contact fetched from API', function() {
@@ -129,6 +130,7 @@ describe('test.contactDetails module', function() {
                     "phone_number": "+9876543210",
                     "resource_uri": "/api/v1/contact/1"
                 }).respond(200);
+            scope.frm_contact_details.$valid = true;
             scope.update();
             $httpBackend.flush();
             expect(scope.showSuccess).toBe(true);
@@ -161,9 +163,31 @@ describe('test.contactDetails module', function() {
                     "phone_number": "+9876543210",
                     "resource_uri": "/api/v1/contact/1"
                 }).respond(403);
+            scope.frm_contact_details.$valid = true;
             scope.update();
             $httpBackend.flush();
             expect(scope.showError).toBe(true);
+        });
+
+        it('should not try to send invalid form', function() {
+            expect(scope.contact).toEqualData({});
+            $httpBackend.flush();
+            scope.contact = {
+                "birth_date": "1930-02-01",
+                "cellphone_number": "+1234567890",
+                "date_created": "2014-05-24T09:27:44.306000",
+                "email": "some_mail@gmail.com",
+                "first_name": "User",
+                "id": 0,
+                "jabber_id": "jid@jabber.com",
+                "last_name": "Changed",
+                "phone_number": "+9876543210",
+                "resource_uri": "/api/v1/contact/1"
+            };
+            scope.frm_contact_details.$valid = false;
+            scope.update();
+            $httpBackend.verifyNoOutstandingExpectation();
+            $httpBackend.verifyNoOutstandingRequest();
         });
 
     });
