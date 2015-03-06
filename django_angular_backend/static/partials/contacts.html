@@ -13,7 +13,7 @@
         <th>Landline:</th>
     </thead>
     <tbody>
-        <tr ng-repeat="contact in filtered_contacts | orderBy:sort_by.id" ng-if="$index >= current_page * page_size && $index < (current_page + 1) * page_size">
+        <tr ng-repeat="contact in filtered_contacts | orderBy:sort_by.id" ng-if="isShowedOnCurrentPage($index)">
             <td><a href="#/contacts/{{ contact.id }}">{{ contact.first_name }} {{ contact.last_name }}</a></td>
             <td>{{ contact.email }}</td>
             <td>{{ contact.cellphone_number | phone }}</td>

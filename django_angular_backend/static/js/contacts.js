@@ -66,4 +66,8 @@ angular.module('test.contacts', ['ngRoute'])
         }
     }
 
+    $scope.isShowedOnCurrentPage = function(idx) {
+        return idx >= $scope.current_page * $scope.page_size && idx < ($scope.current_page + 1) * $scope.page_size;
+    }
+
 }]);
