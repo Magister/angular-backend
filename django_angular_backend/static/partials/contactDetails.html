@@ -2,7 +2,7 @@
 <div class="container">
     <div class="container">
         <form novalidate name="frm_contact_details" class="form-horizontal" ng-submit="update()">
-            <div class="form-group">
+            <div class="form-group" ng-class="validate(frm_contact_details.first_name)">
                 <label class="col-sm-2 control-label">Name:</label>
                 <div class="col-sm-2">
                     <input type="text" class="form-control" name="first_name" ng-model="contact.first_name" ng-required="!schema.fields.first_name.blank"/>
@@ -11,7 +11,7 @@
                     <span>{{ frm_contact_details.first_name.$error.required && '* Required field' }}</span>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" ng-class="validate(frm_contact_details.last_name)">
                 <label class="col-sm-2 control-label">Last name:</label>
                 <div class="col-sm-2">
                     <input type="text" class="form-control" name="last_name" ng-model="contact.last_name" ng-required="!schema.fields.last_name.blank"/>
@@ -20,7 +20,7 @@
                     <span>{{ frm_contact_details.last_name.$error.required && '* Required field' }}</span>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" ng-class="validate(frm_contact_details.email)">
                 <label class="col-sm-2 control-label">Email:</label>
                 <div class="col-sm-2">
                     <input type="email" class="form-control" name="email" ng-model="contact.email" placeholder="user@server" ng-required="!schema.fields.email.blank"/>
@@ -30,7 +30,7 @@
                     <span>{{ frm_contact_details.email.$error.email && '* Must be a valid email' }}</span>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" ng-class="validate(frm_contact_details.cellphone_number)">
                 <label class="col-sm-2 control-label">Cell phone:</label>
                 <div class="col-sm-2">
                     <input type="text" class="form-control" name="cellphone_number" ng-model="contact.cellphone_number" ng-pattern="/^\+\d{11}$/" ng-required="!schema.fields.cellphone_number.blank"/>
@@ -40,7 +40,7 @@
                     <span>{{ frm_contact_details.cellphone_number.$error.pattern && '* Value must start with `+` and contain 11 numbers' }}</span>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" ng-class="validate(frm_contact_details.phone_number)">
                 <label class="col-sm-2 control-label">Landline:</label>
                 <div class="col-sm-2">
                     <input type="text" class="form-control" name="phone_number" ng-model="contact.phone_number" ng-pattern="/^\+\d{11}$/" ng-required="!schema.fields.phone_number.blank"/>
@@ -50,7 +50,7 @@
                     <span>{{ frm_contact_details.phone_number.$error.pattern && '* Value must start with `+` and contain 11 numbers' }}</span>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" ng-class="validate(frm_contact_details.birth_date)">
                 <label class="col-sm-2 control-label">Birth date:</label>
                 <div class="col-sm-2">
                     <input type="date" class="form-control" name="birth_date" ng-model="contact.birth_date" placeholder="yyyy-DD-MM" ng-required="!schema.fields.birth_date.blank"/>
@@ -60,7 +60,7 @@
                     <span>{{ frm_contact_details.birth_date.$error.date && '* Must be a valid date' }}</span>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" ng-class="validate(frm_contact_details.jabber_id)">
                 <label class="col-sm-2 control-label">JID:</label>
                 <div class="col-sm-2">
                     <input type="email" class="form-control" name="jabber_id" ng-model="contact.jabber_id" placeholder="jid@server" ng-required="!schema.fields.jabber_id.blank"/>

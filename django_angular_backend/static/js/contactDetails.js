@@ -28,6 +28,17 @@ angular.module('test.contactDetails', ['ngRoute'])
         }, function() {
             $scope.showError = true;
         });
+    };
+
+    $scope.validate = function(state) {
+        if (state.$pristine) {
+            return '';
+        }
+        if (state.$invalid) {
+            return 'has-error';
+        } else {
+            return 'has-success';
+        }
     }
 
 }]);
