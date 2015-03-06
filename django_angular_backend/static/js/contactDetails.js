@@ -19,11 +19,26 @@ angular.module('test.contactDetails', ['ngRoute'])
     });
 
     $scope.update = function() {
+        if (!$scope.frm_contact_details.$valid) {
+            alert('Please, fill the form correctly.')
+            return;
+        }
         ContactsService.update($scope.contact, function() {
             $scope.showSuccess = true;
         }, function() {
             $scope.showError = true;
         });
+    };
+
+    $scope.validate = function(state) {
+        if (state.$pristine) {
+            return '';
+        }
+        if (state.$invalid) {
+            return 'has-error';
+        } else {
+            return 'has-success';
+        }
     }
 
 }]);
