@@ -15,7 +15,6 @@ angular.module('test.contactDetails', ['ngRoute'])
     $scope.contact = ContactsService.get({contactId: routeParams.contactId});
     $scope.contact.$promise.then(function(result) {
         $scope.contact = result;
-        $scope.contact.birth_date = new Date($scope.contact.birth_date);
     });
 
     $scope.update = function() {
