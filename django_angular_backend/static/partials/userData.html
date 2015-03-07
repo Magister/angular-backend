@@ -1,4 +1,4 @@
-<div class="col-sm-6">
+<div class="col-sm-4">
     <div class="element">
         <label>First name:</label>
         <span>{{ userdata.firstname }}</span>
@@ -16,9 +16,12 @@
         <span>{{ userdata.bio }}</span>
     </div>
 </div>
-<div class="col-sm-6">
+<div class="col-sm-4">
     <div class="element" ng-repeat="contact in userdata.contacts">
         <label>{{ contact.caption }}:</label>
         <span>{{ contact.value }}</span>
     </div>
+</div>
+<div class="col-sm-4">
+    <last-added count="3" model="contacts" template-url="static/partials/directives/lastAdded.html"></last-added>
 </div>
