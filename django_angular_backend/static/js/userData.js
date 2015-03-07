@@ -9,7 +9,7 @@ angular.module('test.userData', ['ngRoute'])
   });
 }])
 
-.controller('UserData', ['$scope', function($scope) {
+.controller('UserData', ['$scope', 'ContactsService', function($scope, ContactsService) {
 
     $scope.userdata = {
         "firstname": "Misha",
@@ -23,5 +23,10 @@ angular.module('test.userData', ['ngRoute'])
             { type: "other", caption: "Other", value: "some other contact data"},
         ]
     };
+
+    $scope.contacts = ContactsService.query();
+    $scope.contacts.$promise.then(function(result) {
+        $scope.contacts = result.objects;
+    });
 
 }]);

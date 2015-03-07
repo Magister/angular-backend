@@ -1,0 +1,9 @@
+<h3>Last added contacts</h3>
+<div class="panel panel-default" ng-repeat="contact in contacts | orderBy:'date_created':true | limitTo:count">
+    <div class="panel-body">
+        <address>
+            {{ contact.first_name }} {{ contact.last_name }} <br>
+            {{ contact.phone_number}}
+        </address>
+    </div>
+</div>
