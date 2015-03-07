@@ -5,8 +5,7 @@ angular.module('test.lastAddedDirective', [])
 .directive('lastAdded', function($templateCache) {
 
     return {
-        restrict: 'E',
-        replace: true,
+        restrict: 'EA',
         scope: {
             count: '=',
             contacts: '=model'
