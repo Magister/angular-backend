@@ -12,9 +12,6 @@ describe('test.lastAddedDirective module', function() {
             $compile = _$compile_;
             $rootScope = _$rootScope_;
             scope = $rootScope.$new();
-        }));
-
-        it('should replace the element with appropriate content', inject(function($templateCache) {
             scope.contacts = [
                 {
                     "birth_date": "1933-03-02",
@@ -77,13 +74,29 @@ describe('test.lastAddedDirective module', function() {
                     "resource_uri": "/api/v1/contact/5"
                 }
             ];
-            $templateCache.put('lastAdded.html', '<div>'
+        }));
+
+        it('should replace the element with appropriate content when used as an element', inject(function($templateCache) {
+            $templateCache.put('lastAdded.html', ''
                            + '<div class="panel panel-default" ng-repeat="contact in contacts | orderBy:\'date_created\':true | limitTo:count">'
                            + '<div class="panel-body">'
                            + '<address>{{ contact.first_name }} {{ contact.last_name }} <br>{{ contact.phone_number}}</address>'
-                           + '</div></div></div>');
+                           + '</div></div>');
 
             var element = $compile('<last-added count="3" model="contacts" template-url="lastAdded.html"></last-added>')(scope);
+            scope.$digest();
+            // notice order: Daniel Kottke should be before Paul Allen
+            expect(element.html()).toMatch(/<address.+>\s*Daniel\s+Kottke.*<address.+>\s*Paul\s+Allen/);
+        }));
+
+        it('should replace the element with appropriate content when used as an attribute', inject(function($templateCache) {
+            $templateCache.put('lastAdded.html', ''
+                           + '<div class="panel panel-default" ng-repeat="contact in contacts | orderBy:\'date_created\':true | limitTo:count">'
+                           + '<div class="panel-body">'
+                           + '<address>{{ contact.first_name }} {{ contact.last_name }} <br>{{ contact.phone_number}}</address>'
+                           + '</div></div>');
+
+            var element = $compile('<div last-added count="3" model="contacts" template-url="lastAdded.html"></div>')(scope);
             scope.$digest();
             // notice order: Daniel Kottke should be before Paul Allen
             expect(element.html()).toMatch(/<address.+>\s*Daniel\s+Kottke.*<address.+>\s*Paul\s+Allen/);
