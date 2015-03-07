@@ -12,8 +12,12 @@ module.exports = function(config) {
         var prefix = path.join(bower_dir, bowerComponents[i]);
         if (fs.existsSync(path.join(prefix, 'bower.json'))) {
             var bower_js = require('./' + path.join(prefix, 'bower.json'));
-            if (path.extname(bower_js.main).toLowerCase() === '.js')
-                files.push(path.normalize(path.join(prefix, bower_js.main)));
+            if (path.extname(bower_js.main).toLowerCase() === '.js') {
+                var component_files = [].concat(bower_js.main);
+                for (var j = 0; j < component_files.length; j++) {
+                    files.push(path.normalize(path.join(prefix, component_files[j])));
+                }
+            }
         }
     }
     files = files.concat([
