@@ -7,7 +7,8 @@ angular.module('test', [
     'test.contacts',
     'test.contactsService',
     'test.contactDetails',
-    'test.phoneFilter'
+    'test.phoneFilter',
+    'test.lastAddedDirective'
 ])
 
 .config(['$routeProvider', function($routeProvider) {
