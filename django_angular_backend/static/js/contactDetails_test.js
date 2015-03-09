@@ -190,5 +190,27 @@ describe('test.contactDetails module', function() {
             $httpBackend.verifyNoOutstandingRequest();
         });
 
+        it('should have a function that returns if the contact has birthday today', function() {
+            scope.contact = {
+                "birth_date": "",
+                "cellphone_number": "+1234567890",
+                "date_created": "2014-05-24T09:27:44.306000",
+                "email": "some_mail@gmail.com",
+                "first_name": "User",
+                "id": 0,
+                "jabber_id": "jid@jabber.com",
+                "last_name": "Changed",
+                "phone_number": "+9876543210",
+                "resource_uri": "/api/v1/contact/1"
+            };
+            var today = new Date();
+            scope.contact.birth_date = new Date(1963, today.getMonth(), today.getDate());
+            expect(scope.hasBirthDayToday()).toBe(true);
+            scope.contact.birth_date = new Date(1963, today.getMonth()-1, today.getDate());
+            expect(scope.hasBirthDayToday()).toBe(false);
+            scope.contact.birth_date = new Date(1963, today.getMonth(), today.getDate()-1);
+            expect(scope.hasBirthDayToday()).toBe(false);
+        })
+
     });
 });

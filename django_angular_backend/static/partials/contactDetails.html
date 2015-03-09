@@ -1,4 +1,5 @@
-<h3 class="text-center">{{ contact.first_name}} {{ contact.last_name}} </h3>
+<h3 class="text-center">{{ contact.first_name}} {{ contact.last_name}}</h3>
+<h4 class="text-center"><span class="label label-success">{{ hasBirthDayToday() ? ' has birthday today!' : '' }}</span></h4>
 <div class="container">
     <div class="container">
         <form novalidate name="frm_contact_details" class="form-horizontal" ng-submit="update()">
@@ -53,7 +54,7 @@
             <div class="form-group" ng-class="validate(frm_contact_details.birth_date)">
                 <label class="col-sm-2 control-label">Birth date:</label>
                 <div class="col-sm-2">
-                    <input jq-date-picker type="text" class="form-control" name="birth_date" ng-model="contact.birth_date" ng-pattern="/^(19|20)\d\d-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/" placeholder="yyyy-DD-MM" ng-required="!schema.fields.birth_date.blank"/>
+                    <input jq-date-picker type="text" class="form-control" name="birth_date" ng-model="contact.birth_date" validate-date placeholder="yyyy-DD-MM" ng-required="!schema.fields.birth_date.blank"/>
                 </div>
                 <div class="col-sm-8" ng-show="frm_contact_details.$submitted || frm_contact_details.birth_date.$touched">
                     <span>{{ frm_contact_details.birth_date.$error.required && '* Required field' }}</span>

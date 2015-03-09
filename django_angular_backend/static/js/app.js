@@ -9,7 +9,8 @@ angular.module('test', [
     'test.contactDetails',
     'test.phoneFilter',
     'test.lastAddedDirective',
-    'test.jqDatePickerDirective'
+    'test.jqDatePickerDirective',
+    'test.validateDateDirective'
 ])
 
 .config(['$routeProvider', function($routeProvider) {
