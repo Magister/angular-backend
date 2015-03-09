@@ -40,4 +40,10 @@ angular.module('test.contactDetails', ['ngRoute'])
         }
     }
 
+    $scope.hasBirthDayToday = function() {
+        var date = new Date($scope.contact.birth_date);
+        var today = new Date();
+        return (date.getDate() === today.getDate()) && (date.getMonth() === today.getMonth());
+    }
+
 }]);
