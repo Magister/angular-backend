@@ -3,7 +3,7 @@
     <div class="panel-body">
         <address>
             {{ contact.first_name }} {{ contact.last_name }} <br>
-            {{ contact.phone_number}}
+            <i>{{ contact.phone_number || 'No number' }}</i>
         </address>
     </div>
 </div>
